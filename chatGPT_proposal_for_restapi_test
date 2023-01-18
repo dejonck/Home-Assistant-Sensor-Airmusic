@@ -1,0 +1,43 @@
+# chatGPT tried to propose next :-)
+
+resources:
+  - url: /local/custom_cards.js
+    type: module
+  - url: /local/card-mod.js
+    type: module
+
+script:
+  retrieve_envivo_data:
+    sequence:
+    - service: shell_command.curl
+      data:
+        command: 'curl "http://192.168.0.97/playinfo”'
+
+views:
+  - title: ENVIVO Data
+    cards:
+      - type: custom:card-mod
+        card:
+          type: entities
+          entities:
+            - script.retrieve_envivo_data
+
+dashboards:
+  - name: ENVIVO Data
+    panels:
+      - title: ENVIVO Data
+        type: entities
+        entities:
+          - script.retrieve_envivo_data
+
+automation:
+  - alias: Display ENVIVO Data
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.temperature
+      above: 25
+    action:
+      service: dashboard.set_panel
+      data:
+        dashboard: ENVIVO Data
+        panel: ENVIVO Data
