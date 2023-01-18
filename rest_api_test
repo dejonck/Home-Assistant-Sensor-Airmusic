@@ -1,0 +1,43 @@
+  - platform: rest
+    name: envivo
+    icon: mdi:radio
+    unique_id: radio.envivo
+    scan_interval: 10
+    payload: '{ "vol" : "status" : "sid" : "logo_img" : "stream_format" : "station_info" : "song" : "artist" }'
+    resource: "http://192.168.0.97/playinfo"
+    json_attributes:
+      - vol
+      - status
+      - sid
+      - logo_img
+      - stream_format
+      - station_info
+      - song
+      - artist
+    value_template: "Envivo activated"
+  - platform: template
+    sensors:
+      status:
+        friendly_name: "envivo.status"
+        value_template: "{{ state_attr('sensor.json_envivo', 'status') }}"
+        unique_id: radio.envivo
+      station_info:
+        friendly_name: "envivo.stationinfo"
+        value_template: "{{ state_attr('sensor.envivo', 'station_info') }}"
+        unique_id: radio.envivo
+      song:
+        friendly_name: "envivo.song"
+        value_template: "{{ state_attr('sensor.envivo', 'song') }}"
+        unique_id: radio.envivo
+      artist:
+        friendly_name: "envivo.artist"
+        value_template: "{{ state_attr('sensor.envivo', 'artist') }}"
+        unique_id: radio.envivo
+      logo_img:
+        friendly_name: "envivo.logo"
+        value_template: "{{ state_attr('sensor.json_envivo', 'logo_img') }}"
+        unique_id: radio.envivo
+      volume:
+        friendly_name: "envivo.volume"
+        value_template: "{{ state_attr('sensor.json_envivo', 'vol') }}"
+        unique_id: radio.envivo
