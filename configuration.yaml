@@ -1,0 +1,38 @@
+shell_command:
+  airmusic_aan: "curl http://192.168.0.97/init"
+  airmusic_uit: "curl http://192.168.0.97/exit"
+  airmusic_vol0: "curl http://192.168.0.97/setvol?vol=1&mute=0"
+  airmusic_vol1: "curl http://192.168.0.97/setvol?vol=4&mute=0"
+  airmusic_vol2: "curl http://192.168.0.97/setvol?vol=7&mute=0"
+  airmusic_vol3: "curl http://192.168.0.97/setvol?vol=10&mute=0"
+  airmusic_vol4: "curl http://192.168.0.97/setvol?vol=13&mute=0"
+  airmusic_vol5: "curl http://192.168.0.97/setvol?vol=16&mute=0"
+  airmusic_fav0: "curl http://192.168.0.97/play_stn?id=75_0"
+  airmusic_fav1: "curl http://192.168.0.97/play_stn?id=75_1"
+  airmusic_fav2: "curl http://192.168.0.97/play_stn?id=75_2"
+  airmusic_fav3: "curl http://192.168.0.97/play_stn?id=75_3"
+sensor:
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_status
+    scan_interval: 10
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<station_info>!#!g' | sed 's!</station_info>!#!g' | cut -d '#' -f2 | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_stationinfo
+    scan_interval: 10
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<song>!#!g' | sed 's!</song>!#!g' | cut -d '#' -f2 | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_song
+    scan_interval: 10
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<artist>!#!g' | sed 's!</artist>!#!g' | cut -d '#' -f2 | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_artist
+    scan_interval: 10
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<logo_img>!#!g' | sed 's!</logo_img>!#!g' | cut -d '#' -f2 | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_logo
+    scan_interval: 10
+  - platform: command_line
+    command: "curl http://192.168.0.97/playinfo  | sed 's!<vol>!#!g' | sed 's!</vol>!#!g' | cut -d '#' -f2 | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
+    name: airmusic_volume
+    scan_interval: 10
