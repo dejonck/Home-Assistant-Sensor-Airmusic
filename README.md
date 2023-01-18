@@ -13,6 +13,7 @@ https://github.com/RobinMeis/AirMusic
 Curl commands and their XML output
 
 Get system info
+```
 $ curl http://192.168.0.97/GetSystemInfo          
 <?xml version="1.0" encoding="UTF-8"?><menu>
 <SW_Ver>SW809H11-f828n-f903**a*-f811a-5b11</SW_Ver>
@@ -27,8 +28,10 @@ $ curl http://192.168.0.97/GetSystemInfo
 <DNS2></DNS2>
 </wifi_info>
 </menu>
+```
 
 Get the list of the main menu (id=1)
+```
 $ curl "http://192.168.0.97/list?id=1&start=1&count=250"
 <?xml version="1.0" encoding="UTF-8"?><menu>
 <item_total>5</item_total>
@@ -39,8 +42,10 @@ $ curl "http://192.168.0.97/list?id=1&start=1&count=250"
 <item><id>5</id><status>content</status><name>FM</name></item>
 <item><id>47</id><status>content</status><name>AUX</name></item>
 </menu>
+```
 
 Get the list of Mijn Favorieten (id=75)
+```
 $ curl "http://192.168.0.97/list?id=75&start=1&count=250"
 <?xml version="1.0" encoding="UTF-8"?><menu>
 <item_total>6</item_total><item_return>6</item_return>
@@ -51,7 +56,7 @@ $ curl "http://192.168.0.97/list?id=75&start=1&count=250"
 <item><id>75_4</id><status>emptyfile</status><name>Leeg</name></item>
 <item><id>75_5</id><status>emptyfile</status><name>Leeg</name></item>
 </menu>
-
+```
 Get the list of HotKeys (id=75)
 $ curl "http://192.168.0.97/hotkeylist"
 <?xml version="1.0" encoding="UTF-8"?><menu>
