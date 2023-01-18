@@ -1,18 +1,18 @@
 # Home-Assistant-Sensor-Airmusic
 AirMusic Envivo radio ENV-1388
 
-_Note:_ 
+**Note:**
 Not all models supporting Airmusic are having the same ability of curl commands. As example on this version the Sendkeys is not available.
 The authorization key, 'Authorization: Basic c3UzZzRnbzZzazc6amkzOTQ1NHh1L14=' as described for many, is as well not required on this model.
 
-resources:
+**resources:**
 https://www.teknihall.be/sites/teknihallbe/files/downloads/1388.pdf
 https://community.home-assistant.io/t/airmusic-control-by-mediau/388429
 https://github.com/RobinMeis/AirMusic
 
-Curl commands and their XML output
+**Curl commands and their XML output**
 
-Get system info
+* Get system info
 ```
 $ curl http://192.168.0.97/GetSystemInfo          
 <?xml version="1.0" encoding="UTF-8"?><menu>
@@ -30,7 +30,7 @@ $ curl http://192.168.0.97/GetSystemInfo
 </menu>
 ```
 
-Get the list of the main menu (id=1)
+* Get the list of the main menu (id=1)
 ```
 $ curl "http://192.168.0.97/list?id=1&start=1&count=250"
 <?xml version="1.0" encoding="UTF-8"?><menu>
@@ -44,7 +44,7 @@ $ curl "http://192.168.0.97/list?id=1&start=1&count=250"
 </menu>
 ```
 
-Get the list of Mijn Favorieten (id=75)
+* Get the list of Mijn Favorieten (id=75)
 ```
 $ curl "http://192.168.0.97/list?id=75&start=1&count=250"
 <?xml version="1.0" encoding="UTF-8"?><menu>
@@ -57,7 +57,9 @@ $ curl "http://192.168.0.97/list?id=75&start=1&count=250"
 <item><id>75_5</id><status>emptyfile</status><name>Leeg</name></item>
 </menu>
 ```
-Get the list of HotKeys (id=75)
+
+* Get the list of HotKeys (id=75)
+```
 $ curl "http://192.168.0.97/hotkeylist"
 <?xml version="1.0" encoding="UTF-8"?><menu>
 <item_total>6</item_total><item_return>5</item_return>
@@ -67,32 +69,46 @@ $ curl "http://192.168.0.97/hotkeylist"
 <item><id>75_3</id><status>file</status><name>Joe FM 80s</name></item>
 <item><id>75_4</id><status>emptyfile</status><name>Leeg</name></item>
 </menu
+```
 
-Select the item from the main Menu
+* Select the item from the main Menu
+```
 $ curl "http://192.168.0.97/gochild?id=52"
 <?xml version="1.0" encoding="UTF-8"?><result><id>52</id></result>
+```
 
-Play hotkey 1
+* Play hotkey 1
+```
 $ curl "http://192.168.0.97/playhotkey?key=1"           
 <?xml version="1.0" encoding="UTF-8"?><result><id>75</id><rt>OK</rt></result>
+```
 
-Status van het spelen
+* Status van het spelen
+```
 $ curl http://192.168.0.97/playinfo"
 <?xml version="1.0" encoding="UTF-8"?><result>FAIL</result>
+```
 
-Volume op 5 en Mute uit (vol 0->15)
+* Volume op 5 en Mute uit (vol 0->15)
+```
 $ curl "http://192.168.0.97/setvol?vol=5&mute=0"
 <?xml version="1.0" encoding="UTF-8"?><result><vol>5</vol><mute>0</mute></result>
+```
 
-Adding a new station
+* Adding a new station
+```
 $ curl "http://192.168.0.97/AddRadioStation?name=BusinessAM&url=https://stream.medianation.be/bam"
 <?xml version="1.0" encoding="UTF-8"?><result><rt>NO_SUPPORT</rt></result>
+```
 
-Going back in the menu
+* Going back in the menu
+```
 $ curl "http://192.168.0.97/back"                        
 <?xml version="1.0" encoding="UTF-8"?><result><id>75</id></result>
+```
 
-Info of the current status
+* Info of the current status
+```
 $ curl "http://192.168.0.97/playinfo"                    
 <?xml version="1.0" encoding="UTF-8"?><result>
 <vol>6</vol><mute>0</mute>
@@ -103,3 +119,4 @@ $ curl "http://192.168.0.97/playinfo"
 <song>Don't Stop</song>
 <artist>FLEETWOOD MAC</artist>
 </result>
+```
