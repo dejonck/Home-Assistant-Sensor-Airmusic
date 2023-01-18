@@ -1,3 +1,4 @@
+# Instruction when pushing the buttons
 shell_command:
   airmusic_aan: "curl http://192.168.0.97/init"
   airmusic_uit: "curl http://192.168.0.97/exit"
@@ -11,6 +12,8 @@ shell_command:
   airmusic_fav1: "curl http://192.168.0.97/play_stn?id=75_1"
   airmusic_fav2: "curl http://192.168.0.97/play_stn?id=75_2"
   airmusic_fav3: "curl http://192.168.0.97/play_stn?id=75_3"
+
+# sensors in order to diplay the data
 sensor:
   - platform: command_line
     command: "curl http://192.168.0.97/playinfo  | sed 's!<status>!#!g' | sed 's!</status>!#!g' | cut -d '#' -f2 | egrep -v 'INVALID_CMD|FAIL'"
