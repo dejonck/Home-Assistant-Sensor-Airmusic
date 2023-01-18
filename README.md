@@ -6,9 +6,9 @@ Not all models supporting Airmusic are having the same ability of curl commands.
 The authorization key, `'Authorization: Basic c3UzZzRnbzZzazc6amkzOTQ1NHh1L14='` as described for many, is as well not required on this model.
 
 **resources:**
-https://www.teknihall.be/sites/teknihallbe/files/downloads/1388.pdf
-https://community.home-assistant.io/t/airmusic-control-by-mediau/388429
-https://github.com/RobinMeis/AirMusic
+* https://www.teknihall.be/sites/teknihallbe/files/downloads/1388.pdf
+* https://community.home-assistant.io/t/airmusic-control-by-mediau/388429
+* https://github.com/RobinMeis/AirMusic
 
 **Curl commands and their XML output**
 
