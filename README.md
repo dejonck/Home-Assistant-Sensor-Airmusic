@@ -14,9 +14,11 @@ The authorization key, `'Authorization: Basic c3UzZzRnbzZzazc6amkzOTQ1NHh1L14='`
 
 * Get system info
 ```
-$ curl http://192.168.0.97/GetSystemInfo          
-<?xml version="1.0" encoding="UTF-8"?><menu><SW_Ver>SW809H11-f828n-f903**a*-f811a-5b11</SW_Ver><wifi_info><status>connected</status><MAC>20F41B15F0CB</MAC><SSID>spynet</SSID><IP>192.168.0.97</IP><Subnet>255.255.255.0</Subnet><Gateway>192.168.0.1</Gateway ><DNS1>8.8.8.8</DNS1><DNS2></DNS2></wifi_info></menu>
+$ curl http://192.168.0.97/GetSystemInfo
 ```
+`
+<?xml version="1.0" encoding="UTF-8"?><menu><SW_Ver>SW809H11-f828n-f903**a*-f811a-5b11</SW_Ver><wifi_info><status>connected</status><MAC>20F41B15F0CB</MAC><SSID>spynet</SSID><IP>192.168.0.97</IP><Subnet>255.255.255.0</Subnet><Gateway>192.168.0.1</Gateway ><DNS1>8.8.8.8</DNS1><DNS2></DNS2></wifi_info></menu>
+`
 
 * Get the list of the main menu (id=1)
 ```
