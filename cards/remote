@@ -1,0 +1,143 @@
+square: false
+columns: 3
+type: grid
+cards:
+  - show_name: true
+    show_icon: false
+    type: button
+    name: 'OFF'
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_uit
+      service_data: {}
+      target: {}
+    icon: mdi:power-off
+    show_state: true
+    hold_action:
+      action: none
+    icon_height: 30px
+  - show_name: true
+    show_icon: false
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_aan
+      service_data: {}
+      target: {}
+    icon: mdi:power-on
+    show_state: true
+    hold_action:
+      action: none
+    icon_height: 30px
+    name: 'ON'
+  - show_name: true
+    show_icon: false
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_fav0
+      service_data: {}
+      target: {}
+    icon: mdi:numeric-1
+    name: Q-music
+    icon_height: 30px
+  - show_name: true
+    show_icon: false
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_fav1
+      service_data: {}
+      target: {}
+    name: JOE fm
+    icon: mdi:numeric-2
+    icon_height: 30px
+    show_state: false
+  - show_name: true
+    show_icon: false
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_fav2
+      service_data: {}
+      target: {}
+    icon: mdi:numeric-3
+    name: PXL Radio
+    icon_height: 30px
+  - show_name: true
+    show_icon: false
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_fav3
+      service_data: {}
+      target: {}
+    icon: mdi:numeric-4
+    name: Joe FM 80s
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol0
+      service_data: {}
+      target: {}
+    icon: mdi:volume-mute
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol1
+      service_data: {}
+      target: {}
+    icon: mdi:volume-low
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol2
+      service_data: {}
+      target: {}
+    icon: mdi:volume-minus
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol3
+      service_data: {}
+      target: {}
+    icon: mdi:volume-equal
+    show_state: false
+    hold_action:
+      action: none
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol4
+      service_data: {}
+      target: {}
+    icon: mdi:volume-medium
+    show_state: false
+    hold_action:
+      action: none
+    icon_height: 30px
+  - show_name: false
+    show_icon: true
+    type: button
+    tap_action:
+      action: call-service
+      service: shell_command.airmusic_vol5
+      service_data: {}
+      target: {}
+    icon: mdi:volume-high
+    icon_height: 30px
