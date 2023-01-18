@@ -1,0 +1,11 @@
+type: entities
+icon: mdi:radio
+entities:
+  - entity: sensor.airmusic_status
+  - entity: sensor.airmusic_volume
+  - entity: sensor.airmusic_stationinfo
+  - entity: sensor.airmusic_song
+  - entity: sensor.airmusic_artist
+title: AirMusic
+show_header_toggle: false
+state_color: false
